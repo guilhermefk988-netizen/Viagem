@@ -1,23 +1,258 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.main{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+body {
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+ button:active {
+        transform: translateY(-3px);
+      }
+.header {
+  width: 100%;
+  height: 13vh;
+  position: fixed;
+  z-index: 10;
 
-    .imagem{
+  .computador {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4vw;
+    .logo {
+      width: 15vw;
+      display: flex;
+      justify-content: start;
+      align-items: end;
+      img {
+        width: 25vw;
+        height: 100%;
+        position: relative;
+        right: 5vw;
+
+        object-fit: cover;
+      }
+    }
+
+    .links {
+      display: flex;
+      gap: 3vw;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2vw;
+        font-weight: 200;
+      }
+    }
+  }
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .imagem {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+    }
+  }
+  .texto {
+    position: relative;
+    z-index: 2;
+    width: clamp(20rem, 70vw, 100rem);
+    height: 60%;
+    padding: clamp(4.5rem, 8vw, 12rem) 4vw;
+
+    h2 {
+      font-size: clamp(2.5rem, 4.9vw, 7rem);
+      font-family: "Cormorant Garamond", serif;
+    }
+    p {
+      font-size: clamp(0.8rem, 1.2vw, 2rem);
+      width: clamp(17rem, 30vw, 35rem);
+    }
+  }
+  .barra__inferior {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .barra {
+      width: 90vw;
+      height: 40%;
+      background: rgba(0, 0, 0, 0.507);
+      backdrop-filter: blur(0.3rem);
+      border-radius: 10vw;
+      border: solid 1px rgb(138, 121, 24);
+      display: flex;
+      align-items: center;
+      padding: 0 1vw;
+    }
+    .texto__barra {
+      display: flex;
+      width: 40%;
+      align-items: center;
+      justify-content: center;
+    }
+    .hospedagem {
+      display: flex;
+      width: 15%;
+    }
+    .data {
+      display: flex;
+      width: 15%;
+    }
+    .buscar {
+      height: 100%;
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        width: 19vw;
+        height: 50%;
+        border-radius: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5vw;
+        cursor: pointer;
+        border: none;
+        background: rgb(232, 194, 143);
+      }
+     
+    }
+  }
+  .gradiente {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+}
+
+.lugares {
+  width: 100%;
+  height: auto;
+  background: rgb(0, 0, 0);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 27%);
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  gap: 1rem 0;
+  padding: 2rem 0;
+
+  .mais__menos {
+    position: absolute;
+    bottom: 3vw;
+    right: 3vw;
+  }
+  .card {
+    width: clamp(13rem, 23vw, 30rem);
+    height: clamp(13rem, 23vw, 30rem);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: end;
+
+    .imagem {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      img {
         width: 100%;
         height: 100%;
-        position: absolute;
-        top: 0;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        object-fit: cover;
+        transition: 0.3s;
+      }
     }
+    .gradiente__diferente{
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, black , transparent,transparent);
+        position: absolute;
+    }
+    .coração{
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        padding: 0 1rem;
+        top: 0;
+    }
+    .conteudo {
+      width: 100%;
+      height: 30%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 1.5rem;
+      
+      button{
+        position: absolute;
+        right: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+    }
+  }
+  .card:hover{
+.imagem{
+    img{
+        scale: 1.05;
+    }
+}
+    
+  }
+}
+
+@media (max-width: 830px) {
+  .lugares {
+    grid-template-columns: repeat(2, 45%);
+
+    .card {
+      width: 95%;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .lugares {
+    grid-template-columns: repeat(1, 95%);
+
+    .card {
+      width: 95%;
+    }
+  }
 }
