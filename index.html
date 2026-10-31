@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 
@@ -29,8 +29,10 @@
             </nav>
             <div class="pesquisas">
                 <div class="input">
-                    <button>click</button>
-                    <input type="text">
+                    <a href="#"><button><img width="30" height="30"
+                                src="https://img.icons8.com/ios/50/ccbb1f/search--v1.png"
+                                alt="search--v1" /></button></a>
+                    <input placeholder="Busque seu destino..." id="MinhaBusca" type="text">
                 </div>
             </div>
         </div>
@@ -73,8 +75,10 @@
                     </div>
                 </div>
                 <div class="buscar">
-                    <button> <img width="30" height="30" src="https://img.icons8.com/ios/50/5c3a08/search--v1.png"
-                            alt="search--v1" />Buscar</button>
+
+                    <button><label for="MinhaBusca">
+                            <img width="30" height="30" src="https://img.icons8.com/ios/50/5c3a08/search--v1.png"
+                                alt="search--v1" />Buscar</label></button>
                 </div>
             </div>
         </div>
@@ -84,26 +88,192 @@
         <button class="mais__menos">Mais</button>
 
         <div class="card">
-            <div class="imagem">
-                <img src="img/sessao1__img__responsivo.png" alt="">
-            </div>
-            <div class="gradiente__diferente">
+            <div class="flip">
+                <div class="frente">
+                    <div class="imagem">
+                        <img src="img/sessao1__img__responsivo.png" alt="">
+                    </div>
+                    <div class="gradiente__diferente">
 
+                    </div>
+                    <div class="coração">
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png"
+                            alt="hearts" />
+                    </div>
+                    <div class="conteudo">
+                        <h3>Paris</h3>
+                        <p>França</p>
+                        <p>⭐4.8(12.4k)</p>
+                        <button>
+                            <img width="50" height="50" src="https://img.icons8.com/ios/50/ffffff/circled-left-2.png"
+                                alt="voltar" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tras">
+                    <div class="tras__texto">
+                    <h3>MAIS SOBRE</h3>
+                    <h2>TRAS</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit natus officiis
+                        eveniet minima! Possimus numquam blanditiis fugiat, esse sunt unde mollitia dolore ipsam
+                        assumenda, ab dolorem praesentium quis! Laborum?</p>
+                    </div>
+                    <h4>Informações</h4>
+
+                    <div class="grid__informaçõesSobre">
+
+                        <div class="informações__sobreCard">
+                            <img width="48" height="48" src="https://img.icons8.com/fluency/48/marker.png"
+                                alt="marker" />
+                            <div>
+                                <p>Curtida</p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="informações__sobreCard">
+                            <img width="32" height="32" src="https://img.icons8.com/liquid-glass-color/32/sun.png"
+                                alt="sun" />
+                            <div>
+                                <p></p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="informações__sobreCard">
+                            <img width="32" height="32" src="https://img.icons8.com/liquid-glass-color/32/language.png"
+                                alt="language" />
+                            <div>
+                                <p></p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="informações__sobreCard">
+                            <img width="50" height="50" src="https://img.icons8.com/ios/50/star--v1.png"
+                                alt="star--v1" />
+                            <div>
+                                <p></p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="informações__sobreCard">
+                            <img width="48" height="48"
+                                src="https://img.icons8.com/fluency-systems-regular/48/cheap-2--v1.png"
+                                alt="cheap-2--v1" />
+                            <div>
+                                <p></p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="informações__sobreCard">
+                            <img width="50" height="50" src="https://img.icons8.com/ios/50/trave-diary.png"
+                                alt="trave-diary" />
+                            <div>
+                                <p></p>
+                                <h5></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="coração">
-                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png" alt="hearts" />
+
+        </div>
+
+    </section>
+
+    <section class="pesquisa__area">
+
+        <div class="Barra__de__Informações">
+            <div class="fundo__img">
             </div>
-            <div class="conteudo">
-                <h3>Paris</h3>
-                <p>França</p>
-                <p>⭐4.8(12.4k)</p>
-                <button>
-                    <img width="50" height="50" src="https://img.icons8.com/ios/50/ffffff/circled-left-2.png"
-                        alt="voltar" />
-                </button>
+            <div class="oGradient"></div>
+            <div class="informações">
+                <div class="sair__Informações">
+
+                    <button><img width="30" height="30"
+                            src="https://img.icons8.com/ios-glyphs/30/c9b71a/arrow-pointing-left--v2.png"
+                            alt="arrow-pointing-left--v2" />Voltar</button>
+                </div>
+                <div class="Pesquise">
+                    <a href="#"><button><img width="30" height="30"
+                                src="https://img.icons8.com/ios/50/ccbb1f/search--v1.png"
+                                alt="search--v1" /></button></a>
+                    <input type="text">
+                </div>
             </div>
         </div>
-     
+
+        <div class="sugestões">
+            <div class="texto__sugestões">
+                <h2>Sugestões para você</h2>
+                <p>Explore alguns destinos populares.</p>
+            </div>
+
+            <div class="butões__sugestões">
+
+                <div class="card__Sugestão" data-destino="Paris">
+                    <div class="imagem__card__sugestões">
+                        <img src="img/sessao1__img.png" alt="">
+                    </div>
+                    <div class="texto__card">
+                        <h3>
+                            Paris
+                        </h3>
+                        <p>França</p>
+                    </div>
+                </div>
+                <div class="card__Sugestão" data-destino="Tóquio">
+                    <div class="imagem__card__sugestões">
+                        <img src="img/sessao1__img.png" alt="">
+                    </div>
+                    <div class="texto__card">
+                        <h3>
+                            Tóquio
+                        </h3>
+                        <p>França</p>
+                    </div>
+                </div>
+                <div class="card__Sugestão" data-destino="Roma">
+                    <div class="imagem__card__sugestões">
+                        <img src="img/sessao1__img.png" alt="">
+                    </div>
+                    <div class="texto__card">
+                        <h3>
+                            Roma
+                        </h3>
+                        <p>França</p>
+                    </div>
+                </div>
+                <div class="card__Sugestão" data-destino="Nova York">
+                    <div class="imagem__card__sugestões">
+                        <img src="img/sessao1__img.png" alt="">
+                    </div>
+                    <div class="texto__card">
+                        <h3>
+                            Nova York
+                        </h3>
+                        <p>França</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="lugaresda__pesquisa">
+            <div class="card__da__sugestão">
+
+            </div>
+            <div class="card__da__sugestão">
+
+            </div>
+            <div class="card__da__sugestão">
+
+            </div>
+            <div class="card__da__sugestão">
+
+            </div>
+        </div>
+
     </section>
 </body>
 
