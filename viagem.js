@@ -53,12 +53,40 @@ fetch(`https://api.unsplash.com/photos?per_page=8&client_id=${chave}`)
                     <div class="tras__texto">
                      <h3>MAIS SOBRE</h3>
                      <h2>${card.short_description}</h2>
-                     <p>${card.description}</p>
+                     <p>${card.description || "Descrição não disponível"}</p>
                      
                         </div>
-                      <h4>Informações</h4>  
+                        <div class="texto__informções__tras">
+                      <h4>Informações da foto</h4> 
+                     </div>
+                      <div class="grid__informaçõesSobre">
+
+                        <div class="informações__sobreCard">
+                            <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ff0000/hearts.png" alt="hearts"/>
+                            <div>
+                                <p>Curtida</p>
+                                <h5>${card.likes}</h5>
+                            </div>
+                        </div>     
+                                           </div>
+                  <div class="autor">
+                        <h3>AUTOR DA FOTOGRAFIA</h3>
+
+                        <div class="user__autor">
+                        <img width="30" height="30" src=${card.user.profile_image.medium} alt="hearts"/>
+                         <div>
+                           
+                        <h4>${card.user.username}</h4>
+                            <a href="${card.user.links.html}">${card.user.username}</a>
+                         </div>
+                       
+                            </div>
+
+                    </div>
                    </div>
+                   
                   </div>
+                  
                 </div>
 `});
         fundoImagem.innerHTML = `
@@ -92,7 +120,7 @@ butonSugestão.forEach(botao => {
     botao.addEventListener('click', function (event) {
         const oDestino = event.currentTarget.dataset.destino
 
-        fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(oDestino)}&per_page=30&client_id=${chave}`)
+        fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(oDestino)}&per_page=32&client_id=${chave}`)
             .then(res => res.json())
             .then(dado => {
                 console.log(dado)

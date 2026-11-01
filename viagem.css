@@ -33,7 +33,7 @@ button:active {
       justify-content: start;
       align-items: end;
       img {
-        width: 25vw;
+        width: clamp(10rem, 25vw, 35rem);
         height: 100%;
         position: relative;
         right: 5vw;
@@ -51,6 +51,14 @@ button:active {
         text-decoration: none;
         font-size: 1.2vw;
         font-weight: 200;
+        position: relative;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+      }
+      a:hover {
+        color: rgb(255, 226, 65);
+        text-shadow: yellow 0 0 50px;
       }
     }
     .input {
@@ -75,7 +83,22 @@ button:active {
         border: none;
         cursor: pointer;
       }
+      a:hover::before{
+        width: 0;
+      }
     }
+  }
+
+  a:hover::before {
+    width: 100%;
+  }
+  a::before {
+    content: "";
+    transition: 0.3s;
+    position: absolute;
+    width: 0%;
+    height: 0.15rem;
+    background: gold;
   }
 }
 .main {
@@ -115,7 +138,7 @@ button:active {
       width: clamp(17rem, 30vw, 35rem);
     }
   }
-  
+
   .barra__inferior {
     position: relative;
     z-index: 2;
@@ -135,36 +158,51 @@ button:active {
       display: flex;
       align-items: center;
       padding: 0 1vw;
+
+      h3 {
+        font-size: clamp(0.9rem, 1.3vw, 2rem);
+        font-weight: 400;
+      }
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 1.5rem);
+        font-weight: 200;
+      }
+      text-align: center;
     }
     .texto__barra {
       display: flex;
-      width: 40%;
+      width: 40vw;
       align-items: center;
       justify-content: center;
+      gap: 1vw;
     }
     .hospedagem {
       display: flex;
-      width: 15%;
+      width: clamp(10rem, 15vw, 25rem);
+      align-items: center;
+      gap: 1vw;
     }
     .data {
       display: flex;
-      width: 15%;
+      align-items: center;
+      gap: 1vw;
+      width: clamp(10rem, 15vw, 25rem);
     }
     .buscar {
       height: 100%;
-      width: 30%;
+      width: 30vw;
       display: flex;
       align-items: center;
       justify-content: center;
 
       button {
-        width: 19vw;
+        width: clamp(15rem, 19vw, 30rem);
         height: 50%;
         border-radius: 5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5vw;
+        font-size: clamp(1rem, 1.5vw, 2.5rem);
         cursor: pointer;
         border: none;
         background: rgb(232, 194, 143);
@@ -175,7 +213,6 @@ button:active {
         gap: 0.5rem;
       }
     }
-    
   }
   .gradiente {
     width: 100%;
@@ -186,17 +223,46 @@ button:active {
   }
 }
 
+@media (max-width: 750px) {
+  .main {
+    .barra {
+      .texto__barra {
+        flex-direction: column;
+      }
+      .hospedagem {
+        flex-direction: column;
+      }
+      .data {
+        flex-direction: column;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .main {
+    .barra__inferior {
+      height: 100%;
+
+      .barra {
+        height: 60%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(2, 50%);
+      }
+    }
+  }
+}
 .lugares {
   width: 100%;
   height: auto;
   background: rgb(0, 0, 0);
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 27%);
+  grid-template-columns: repeat(3, 30%);
   align-items: center;
   justify-content: center;
   place-items: center;
-  gap: 1rem 0;
+  gap: 1rem;
   padding: 2rem 0;
 
   .mais__menos {
@@ -205,7 +271,7 @@ button:active {
     right: 3vw;
   }
   .card {
-    width: clamp(13rem, 23vw, 30rem);
+    width: 100%;
     height: clamp(13rem, 23vw, 30rem);
     border-radius: 10px;
     overflow: hidden;
@@ -214,31 +280,131 @@ button:active {
     display: flex;
     align-items: end;
 
-
-    .flip{
+    .flip {
       width: 100%;
       height: 100%;
       position: absolute;
       transform-style: preserve-3d;
       transition: 0.8s;
     }
-    .frente , .tras {
+    .frente {
+      display: flex;
+      align-items: end;
+    }
+    .frente,
+    .tras {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
     }
-    .tras{
-      background: rgb(21, 22, 18);
+    .tras {
+      background: rgba(0, 0, 0, 0.288);
+      border: solid 1px rgba(255, 255, 255, 0.164);
       transform: rotateY(180deg);
+      border-radius: 10px;
+
       display: flex;
       flex-direction: column;
-align-items:center ;
+      align-items: center;
 
-      .tras__texto{
-        padding: 1.5vw 0;
+      .texto__informções__tras {
         width: 90%;
+        h4 {
+          font-size: clamp(0.7rem, 1.2vw, 2rem);
+          text-transform: uppercase;
+          font-weight: 300;
+          color: rgb(255, 227, 65);
+          letter-spacing: 0.2vw;
+        }
+      }
+      .tras__texto {
+        padding: 1vw 0;
+        width: 90%;
+        height: 50%;
         border-bottom: 1px solid white;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        /* Fundo da barra */
+        &::-webkit-scrollbar-track {
+          background: #05090c;
+        }
+
+        /* Indicador que você arrasta */
+        &::-webkit-scrollbar-thumb {
+          background: #a88752;
+          border-radius: 20px;
+          border: 1px solid #05090c;
+        }
+
+        /* Ao passar o mouse */
+        &::-webkit-scrollbar-thumb:hover {
+          background: #d2b47c;
+        }
+
+        h3 {
+          font-weight: 300;
+          font-size: clamp(0.9rem, 1.3vw, 2rem);
+        }
+        h2 {
+          font-size: clamp(1.5rem, 1.9vw, 3rem);
+          font-family: "Playfair Display", serif;
+        }
+        p {
+          font-size: clamp(0.7rem, 1.2vw, 2rem);
+          font-weight: 200;
+        }
+      }
+      .informações__sobreCard {
+        display: flex;
+        gap: 0.5vw;
+      }
+
+      .grid__informaçõesSobre {
+        width: 90%;
+        height: 20%;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: clamp(0.7rem, 1.2vw, 2rem);
+          font-weight: 200;
+        }
+        h5 {
+          font-size: clamp(0.7rem, 1vw, 2rem);
+        }
+      }
+      .autor {
+        width: 90%;
+        height: 30%;
+        border-top: solid 1px white;
+
+        h3 {
+          font-size: clamp(0.7rem, 1vw, 2rem);
+          color: rgb(255, 227, 65);
+          letter-spacing: 0.4vw;
+          font-weight: 300;
+        }
+      }
+      .user__autor {
+        display: flex;
+        gap: 1vw;
+        padding: 1vw 0;
+
+        h4 {
+          font-weight: 300;
+          font-size: clamp(0.7rem, 1vw, 2rem);
+        }
+        a {
+          font-size: clamp(0.7rem, 1.2vw, 2rem);
+          color: white;
+          font-weight: 100;
+        }
       }
     }
 
@@ -280,12 +446,12 @@ align-items:center ;
       padding: 0 1.5rem;
 
       h3 {
-        font-size: 1.4vw;
+        font-size: clamp(1.2rem, 1.4vw, 2rem);
         font-weight: 400;
       }
 
       p {
-        font-size: 1.2vw;
+        font-size: clamp(1rem, 1.2vw, 2rem);
         font-weight: 200;
       }
 
@@ -298,7 +464,7 @@ align-items:center ;
       }
     }
   }
-  .card:hover .flip{
+  .card:hover .flip {
     transform: rotateY(180deg);
   }
   .card:hover {
@@ -309,7 +475,21 @@ align-items:center ;
     }
   }
 }
+@media (max-width: 990px) {
+  .lugares {
+    .card {
+      .tras {
+        .tras__texto {
+          overflow: auto;
 
+          h2 {
+            font-size: clamp(1.2rem, 1.4vw, 2rem);
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 830px) {
   .lugares {
     grid-template-columns: repeat(2, 45%);
@@ -383,8 +563,8 @@ align-items:center ;
     .sair__Informações {
       button {
         color: white;
-        width: 8vw;
-        height: 3vw;
+        width: clamp(5rem, 8vw, 15rem);
+        height: clamp(2rem, 3vw, 5rem);
         border-radius: 3rem;
         border: solid 1px #ccbb1f;
         display: flex;
@@ -405,7 +585,7 @@ align-items:center ;
       align-items: center;
       gap: 0.2rem;
       input {
-        width: 30vw;
+        width: clamp(8rem, 30vw, 50rem);
         outline: none;
         background: none;
         border: none;
@@ -421,12 +601,12 @@ align-items:center ;
   }
   .sugestões {
     width: 100%;
-    height: 8vw;
+    height: clamp(6rem, 8vw, 15rem);
     display: flex;
     border-top: 1px solid rgba(255, 255, 255, 0.137);
 
     .texto__sugestões {
-      width: 30vw;
+      width: clamp(10rem, 30vw, 50rem);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -435,6 +615,10 @@ align-items:center ;
 
       h2 {
         font-family: "Playfair Display", serif;
+        font-size: clamp(1.2rem, 1.8vw, 3rem);
+      }
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
       }
     }
 
@@ -444,6 +628,27 @@ align-items:center ;
       display: flex;
       align-items: center;
       gap: 1rem;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      /* Fundo da barra */
+      &::-webkit-scrollbar-track {
+        background: #05090c;
+      }
+
+      /* Indicador que você arrasta */
+      &::-webkit-scrollbar-thumb {
+        background: #a88752;
+        border-radius: 20px;
+        border: 1px solid #05090c;
+      }
+
+      /* Ao passar o mouse */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #d2b47c;
+      }
     }
   }
   .lugaresda__pesquisa {
@@ -482,7 +687,6 @@ align-items:center ;
     .card__da__sugestão {
       width: clamp(11.5rem, 22vw, 30rem);
       height: clamp(11.5rem, 22vw, 30rem);
-      background: blueviolet;
       border-radius: 1.5rem;
       overflow: hidden;
 
@@ -494,12 +698,12 @@ align-items:center ;
     }
   }
   .card__Sugestão {
-    width: 15vw;
+    width: clamp(13rem, 15vw, 25rem);
     height: 70%;
     display: flex;
     align-items: center;
     padding: 0 0.5vw;
-    gap: 2vw;
+    gap: clamp(1rem, 2vw, 4rem);
     cursor: pointer;
     background: linear-gradient(135deg, #080f13 0%, #050a0d 55%, #030709 100%);
     border: 1px solid rgba(125, 150, 165, 0.12);
@@ -508,8 +712,15 @@ align-items:center ;
       0 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 1vw;
 
+    h3 {
+      font-size: clamp(0.8rem, 1.5vw, 2.5rem);
+    }
+    p {
+      font-size: clamp(0.7rem, 1.2vw, 2rem);
+    }
+
     .imagem__card__sugestões {
-      width: 5vw;
+      width: clamp(4rem, 5vw, 10rem);
       height: 95%;
       background: blue;
       border-radius: 0.7rem;
@@ -569,5 +780,40 @@ align-items:center ;
         height: clamp(11.5rem, 22vw, 30rem);
       }
     }
+  }
+}
+
+.Experiencias {
+  width: 100%;
+  height: 100vh;
+  background: blue;
+  position: relative;
+  overflow: hidden;
+
+  .imagem__fundo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+  }
+  .parte1__sobreNos{
+    width: 100%;
+    height: 60%;
+    background: rgba(255, 0, 0, 0.514);
+    position: relative;
+    z-index: 2;
+  }
+   .parte2__sobreNos{
+    width: 100%;
+    height: 40%;
+    background: rgba(111, 0, 255, 0.514);
+    position: relative;
+    z-index: 2;
   }
 }
