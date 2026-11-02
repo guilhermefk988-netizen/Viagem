@@ -1,4 +1,3 @@
-const maisMenos = document.querySelector(".mais__menos")
 const lugares = document.querySelector(".lugares")
 
 const chave = "4odVi0G3lyg9PiIXIHxGP_eLDIEA4wInCiq1nl9kpdQ" //Unsplash
@@ -19,7 +18,9 @@ const ButonInput = document.querySelector(".input button")
 const inputSessao2 = document.querySelector(".Pesquise input")
 const ButonInputSessão = document.querySelector(".Pesquise button")
 
-fetch(`https://api.unsplash.com/photos?per_page=8&client_id=${chave}`)
+const cardExperiencias__IMG = document.querySelector(".parte2__experiencias")
+
+fetch(`https://api.unsplash.com/photos?per_page=9&client_id=${chave}`)
     .then(res => res.json())
     .then(dados => {
         console.log(dados)
@@ -40,7 +41,7 @@ fetch(`https://api.unsplash.com/photos?per_page=8&client_id=${chave}`)
                 <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png" alt="hearts" />
             </div>
             <div class="conteudo">
-                <h3>${card.user.location}</h3>
+                <h3>${card.user.location || "Nome não disponível"}</h3>
                 <p>França</p>
                 <p>⭐4.8(12.4k)</p>
                 <button>
@@ -98,12 +99,6 @@ fetch(`https://api.unsplash.com/photos?per_page=8&client_id=${chave}`)
 
     )
 
-
-maisMenos.addEventListener('click', function () {
-    if (lugares.style.height === "100vh" || lugares.style.height === "auto") {
-        lugares.style.height = "150vh"
-    } else { lugares.style.height = "100vh" }
-})
 
 butao.addEventListener('click', function () {
     areaPesquisa.style.display = "flex"
@@ -170,3 +165,47 @@ ButonInputSessão.addEventListener('click', function () {
             )
         })
 })
+
+fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_page=30&client_id=${chave}`)
+    .then(res => res.json())
+    .then(IMGs => {
+        const imagens = IMGs.results;
+
+
+        cardExperiencias__IMG.innerHTML = `
+            <div class="card__experiencias">
+                <div class="gradiente"></div>
+                <div class="card__img">
+                    <img src=${imagens[2].urls.regular} alt="">
+                </div>
+                <h3>Viagens Personalizadas</h3>
+                <p>Roteiros feitos sob medida para os seus sonhos.</p>
+            </div>
+
+            <div class="card__experiencias">
+                <div class="gradiente"></div>
+                <div class="card__img">
+                    <img src=${imagens[10].urls.regular} alt="">
+                </div>
+                <h3>Destinos Incríveis</h3>
+                <p>Conheça os lugares mais belos do planeta.</p>
+            </div>
+
+            <div class="card__experiencias">
+                <div class="gradiente"></div>
+                <div class="card__img">
+                    <img src=${imagens[20].urls.regular} alt="">
+                </div>
+                <h3>Momentos Únicos</h3>
+                <p>Viva experiências que ficarão para sempre.</p>
+            </div>
+
+            <div class="card__experiencias">
+                <div class="gradiente"></div>
+                <div class="card__img">
+                    <img src=${imagens[5].urls.regular} alt="">
+                </div>
+                <h3>Aventuras Sem Limites</h3>
+                <p>Explore, descubra e se surpreenda.</p>
+            </div>`
+    })

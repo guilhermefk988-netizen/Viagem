@@ -83,7 +83,7 @@ button:active {
         border: none;
         cursor: pointer;
       }
-      a:hover::before{
+      a:hover::before {
         width: 0;
       }
     }
@@ -694,6 +694,10 @@ button:active {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: 0.3s;
+      }
+      img:hover {
+        scale: 1.1;
       }
     }
   }
@@ -802,18 +806,355 @@ button:active {
       object-position: center right;
     }
   }
-  .parte1__sobreNos{
+  .parte1__experiencias {
     width: 100%;
     height: 60%;
-    background: rgba(255, 0, 0, 0.514);
     position: relative;
     z-index: 2;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+
+    .Experiencias__imagem__principal {
+      width: clamp(45rem, 50vw, 70rem);
+      height: 85%;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .experiências__texto__principal {
+      width: 55%;
+      height: 100%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      h3 {
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
+      h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.2rem, 4.1vw, 10rem);
+        line-height: clamp(2.5rem, 5vw, 10rem);
+      }
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        width: clamp(15rem, 32vw, 50rem);
+      }
+    }
   }
-   .parte2__sobreNos{
+
+  .parte2__experiencias {
     width: 100%;
     height: 40%;
-    background: rgba(111, 0, 255, 0.514);
     position: relative;
     z-index: 2;
+    display: grid;
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(4, 23%);
+    gap: 1rem;
+
+    .card__experiencias {
+      width: 100%;
+      height: 70%;
+      position: relative;
+      border-radius: clamp(0.5rem, 1vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 1vw 2vw;
+      box-shadow: 0 0 5px black;
+      overflow: hidden;
+      transition: 0.3s;
+
+      h3 {
+        font-size: clamp(0.9rem, 1.5vw, 2.5rem);
+        position: relative;
+        z-index: 3;
+      }
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        position: relative;
+        z-index: 3;
+      }
+      .gradiente{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: linear-gradient(0deg , black 1%,transparent,transparent);
+      }
+
+      .card__img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          object-fit: cover;
+          transition: 0.3s;
+        }
+      }
+    }
+    .card__experiencias:hover {
+      scale: 1.01;
+          transition: 0.3s;
+
+      img{
+        scale: 1.10;
+                  transition: 0.3s;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .Experiencias {
+    .parte1__experiencias {
+      flex-direction: column;
+
+      .Experiencias__imagem__principal {
+        width: 100%;
+        height: 60%;
+      }
+      .experiências__texto__principal {
+        width: 100%;
+        height: 55%;
+      }
+    }
+    .parte2__experiencias {
+      height: 40%;
+      grid-template-columns: repeat(2, 45%);
+      padding: 1rem 0;
+
+      .card__experiencias {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.sobre__Nós {
+  width: 100%;
+  height: 100vh;
+  background: dodgerblue;
+  position: relative;
+  overflow: hidden;
+
+  .Fundo__nós {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .textão__sobre__Nós {
+    width: clamp(25rem, 50vw, 70rem);
+    height: 60%;
+    padding-top: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .textos__Nos {
+      width: 95%;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: justify;
+
+      h4 {
+        font-size: clamp(0.9rem, 1.5vw, 2rem);
+        color: #f2b64f;
+        font-weight: 300;
+        letter-spacing: clamp(0.2rem,0.5vw,1.5rem);
+      }
+      h3 {
+        font-size: clamp(1.2rem, 1.5vw, 2.5rem);
+        font-family: "Playfair Display", serif;
+      }
+      h2 {
+        font-size: clamp(3rem, 5vw, 8rem);
+        white-space: nowrap;
+        font-family: "Playfair Display", serif;
+      }
+      span {
+        color: #f2b64f;
+      }
+
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2.5rem);
+        font-weight: 300;
+      }
+    }
+  }
+  .mini__texto {
+    width: clamp(40rem, 55vw, 80rem);
+    height: 15%;
+    display: grid;
+    padding: 0 1vw;
+    grid-template-columns: repeat(4, 25%);
+    place-items: center;
+
+    .mini__textos__Aqui {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-left: solid 1px #f2b64f;
+      border-right: solid 1px #f2b64f9f;
+
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .icone {
+        width: clamp(1.5rem, 3vw, 5rem);
+        height: clamp(1.5rem, 3vw, 5rem);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: relative;
+        }
+      }
+    }
+  }
+  .Barra__texto {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .A__barra__dos__textos {
+      width: 90%;
+      height: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      border: solid 1px #f2b64f;
+      overflow: hidden;
+      border-radius: 1.5vw;
+      box-shadow: 0 0 5px black;
+    }
+    .partes__barra {
+      width: 33%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1vw;
+
+      h3 {
+        font-size: clamp(1rem, 1.5vw, 2.5rem);
+      }
+      p {
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        font-weight: 200;
+      }
+      img {
+        width: clamp(1.5rem, 3vw, 5rem);
+        height: clamp(1.5rem, 3vw, 5rem);
+        object-fit: cover;
+      }
+    }
+  }
+  .Parte__inferior {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    h2 {
+      font-size: clamp(1rem, 2.5vw, 4rem);
+      font-family: "Playfair Display", serif;
+    }
+    p {
+      font-size: clamp(1rem, 1.9vw, 2rem);
+      color: #f2b64f;
+      font-family: "Playfair Display", serif;
+      letter-spacing: clamp(0.5rem,1vw,3rem);
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .sobre__Nós {
+    .textão__sobre__Nós {
+      width: 100%;
+      height: 54%;
+      padding-top: 10vw;
+    }
+    .mini__texto {
+      display: grid;
+      width: 100%;
+      height: 25%;
+      align-items: center;
+      justify-content: center;
+      place-items: center;
+      grid-template-columns: repeat(2, 45%);
+      gap: 0.5rem;
+
+      .mini__textos__Aqui {
+        border: none;
+        box-shadow: 0 0 3px black;
+        border-radius: clamp(0.3rem, 1vw, 2rem);
+      }
+    }
+
+    .Barra__texto {
+      height: 13%;
+
+      .partes__barra {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    .Parte__inferior {
+      height: 8%;
+    }
   }
 }
