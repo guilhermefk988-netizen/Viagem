@@ -24,7 +24,9 @@ const cardExperiencias__IMG = document.querySelector(".parte2__experiencias")
 
 const Lugar3D = document.querySelector(".Terra__3D")
 
-fetch(`https://api.unsplash.com/photos?per_page=10&client_id=${chave}`)
+const carrosel = document.querySelector(".cards__carrosel")
+
+fetch(`https://api.unsplash.com/photos?query=travel%20destinations&per_page=9&client_id=${chave}`)
     .then(res => res.json())
     .then(dados => {
         console.log(dados)
@@ -263,8 +265,27 @@ function animação() {
     Renderizador.render(Cena, Camera)
    if (modulo) {
         modulo.rotation.y += 0.01;
-        modulo.rotation.x += 0.005;
-
+        modulo.rotation.x += 0.001;
     }
+    
 }
 animação()
+window.addEventListener('resize', function () {
+    Camera.aspect = Lugar3D.clientWidth / Lugar3D.clientHeight
+    Camera.updateProjectionMatrix()
+    Renderizador.setSize(Lugar3D.clientWidth, Lugar3D.clientHeight)
+})
+
+
+fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_page=30&client_id=${chave}`)
+    .then(resposta => resposta.json())
+    .then(fotos => {
+
+        fotos.results.forEach((foto,index)=>{
+            carrosel.innerHTML += `
+            <div class="card__carrosel" style="--delay:${index}s">
+                <img src=${foto.urls.full} alt="">
+            </div>
+            `
+        })
+    })
