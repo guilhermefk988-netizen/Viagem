@@ -1,3 +1,5 @@
+
+
 const lugares = document.querySelector(".lugares")
 
 const chave = "4odVi0G3lyg9PiIXIHxGP_eLDIEA4wInCiq1nl9kpdQ" //Unsplash
@@ -20,7 +22,9 @@ const ButonInputSessão = document.querySelector(".Pesquise button")
 
 const cardExperiencias__IMG = document.querySelector(".parte2__experiencias")
 
-fetch(`https://api.unsplash.com/photos?per_page=9&client_id=${chave}`)
+const Lugar3D = document.querySelector(".Terra__3D")
+
+fetch(`https://api.unsplash.com/photos?per_page=10&client_id=${chave}`)
     .then(res => res.json())
     .then(dados => {
         console.log(dados)
@@ -150,6 +154,7 @@ ButonInput.addEventListener('click', function () {
             )
         })
 })
+
 ButonInputSessão.addEventListener('click', function () {
     fetch(`https://api.unsplash.com/search/photos?query=${inputSessao2.value}&per_page=30&client_id=${chave}`)
         .then(res => res.json())
@@ -209,3 +214,57 @@ fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_pa
                 <p>Explore, descubra e se surpreenda.</p>
             </div>`
     })
+
+/* */
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+
+const loader = new GLTFLoader();
+loader.setMeshoptDecoder(MeshoptDecoder);
+
+
+const Cena = new THREE.Scene()
+const Camera = new THREE.PerspectiveCamera(75, Lugar3D.clientWidth / Lugar3D.clientHeight, 0.1, 1000)
+const Renderizador = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+Renderizador.setSize(Lugar3D.clientWidth, Lugar3D.clientHeight)
+Lugar3D.appendChild(Renderizador.domElement)
+const luzAmbiente = new THREE.AmbientLight(0xffffff, 2);
+Cena.add(luzAmbiente);
+
+// Iluminação natural
+const luzHemisferica = new THREE.HemisphereLight(
+    0xffffff,
+    0x526078,
+    1.5
+);
+Cena.add(luzHemisferica);
+
+Camera.position.z = 2
+
+const luzSolar = new THREE.DirectionalLight(0xffffff, 3);
+luzSolar.position.set(5, 3, 5);
+Cena.add(luzSolar);
+let modulo = null;
+
+loader.load('./Terra.glb', (gltf) => {
+    modulo = gltf.scene;
+     const nuvens = modulo.getObjectByName("ATM_0");
+
+    if (nuvens) {
+        nuvens.visible = false;
+    }
+
+    Cena.add(modulo);
+})
+
+function animação() {
+    requestAnimationFrame(animação)
+    Renderizador.render(Cena, Camera)
+   if (modulo) {
+        modulo.rotation.y += 0.01;
+        modulo.rotation.x += 0.005;
+
+    }
+}
+animação()

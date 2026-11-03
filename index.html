@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viagens</title>
     <link rel="stylesheet" href="viagem.css">
-    <script src="viagem.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="./viagem.js"></script>
+</script>
 </head>
 
 <body>
@@ -89,105 +99,7 @@
 
     <section class="lugares">
 
-        <div class="card">
-            <div class="flip">
-                <div class="frente">
-                    <div class="imagem">
-                        <img src="img/sessao1__img__responsivo.png" alt="">
-                    </div>
-                    <div class="gradiente__diferente">
 
-                    </div>
-                    <div class="coração">
-                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png"
-                            alt="hearts" />
-                    </div>
-                    <div class="conteudo">
-                        <h3>Paris</h3>
-                        <p>França</p>
-                        <p>⭐4.8(12.4k)</p>
-                        <button>
-                            <img width="50" height="50" src="https://img.icons8.com/ios/50/ffffff/circled-left-2.png"
-                                alt="voltar" />
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tras">
-                    <div class="tras__texto">
-                        <h3>MAIS SOBRE</h3>
-                        <h2>TRAS</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit natus officiis
-                            eveniet minima! praesentium quis! Laborum?</p>
-                    </div>
-                    <div>
-                        <h4>Informações</h4>
-                    </div>
-                    <div class="grid__informaçõesSobre">
-
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30" src="https://img.icons8.com/fluency/48/marker.png"
-                                alt="marker" />
-                            <div>
-                                <p>Curtida</p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30" src="https://img.icons8.com/liquid-glass-color/32/sun.png"
-                                alt="sun" />
-                            <div>
-                                <p></p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30" src="https://img.icons8.com/liquid-glass-color/32/language.png"
-                                alt="language" />
-                            <div>
-                                <p></p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30" src="https://img.icons8.com/ios/50/star--v1.png"
-                                alt="star--v1" />
-                            <div>
-                                <p></p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30"
-                                src="https://img.icons8.com/fluency-systems-regular/48/cheap-2--v1.png"
-                                alt="cheap-2--v1" />
-                            <div>
-                                <p></p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                        <div class="informações__sobreCard">
-                            <img width="30" height="30" src="https://img.icons8.com/ios/50/trave-diary.png"
-                                alt="trave-diary" />
-                            <div>
-                                <p></p>
-                                <h5></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="autor">
-                        <h3>AUTOR DA FOTOGRAFIA</h3>
-                        <div>
-                            <h4></h4>
-                            <a href="#"></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
     </section>
 
@@ -271,7 +183,7 @@
         </div>
 
         <div class="lugaresda__pesquisa">
-           
+
         </div>
 
     </section>
@@ -334,7 +246,7 @@
     <article class="sobre__Nós">
 
         <div class="Fundo__nós">
-            <img src="" alt="">
+            <img src="img/fundo__experiencias.png" alt="">
         </div>
 
         <div class="textão__sobre__Nós">
@@ -435,6 +347,40 @@
             </div>
         </div>
     </article>
+
+    <section class="sassão__Cultura">
+<div class="fundo__cultura">
+<img src="img/fundo__cultura.png" alt="">
+</div>
+<div class="gradientes">
+
+</div>
+
+        <div class="Cultura__parte1">
+
+            <div class="Terra__3D">
+
+            </div>
+
+            <div class="Texto__cultura">
+
+            </div>
+        </div>
+
+        <div class="cards__carrosel">
+
+        </div>
+    </section>
+
+    <footer class="footer">
+<div class="fundo__footer">
+<img src="img/fundo__footer.png" alt="">
+</div>
+<div class="gradientes">
+
+</div>
+    </footer>
+
 </body>
 
 </html>

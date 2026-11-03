@@ -726,7 +726,6 @@ button:active {
     .imagem__card__sugestões {
       width: clamp(4rem, 5vw, 10rem);
       height: 95%;
-      background: blue;
       border-radius: 0.7rem;
       overflow: hidden;
 
@@ -790,7 +789,6 @@ button:active {
 .Experiencias {
   width: 100%;
   height: 100vh;
-  background: blue;
   position: relative;
   overflow: hidden;
 
@@ -890,14 +888,14 @@ button:active {
         position: relative;
         z-index: 3;
       }
-      .gradiente{
+      .gradiente {
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: 2;
         top: 0;
         left: 0;
-        background: linear-gradient(0deg , black 1%,transparent,transparent);
+        background: linear-gradient(0deg, black 1%, transparent, transparent);
       }
 
       .card__img {
@@ -919,12 +917,11 @@ button:active {
     }
     .card__experiencias:hover {
       scale: 1.01;
-          transition: 0.3s;
+      transition: 0.3s;
 
-      img{
-        scale: 1.10;
-                  transition: 0.3s;
-
+      img {
+        scale: 1.1;
+        transition: 0.3s;
       }
     }
   }
@@ -960,7 +957,7 @@ button:active {
 .sobre__Nós {
   width: 100%;
   height: 100vh;
-  background: dodgerblue;
+  background: linear-gradient(40deg, black 10%, transparent, transparent);
   position: relative;
   overflow: hidden;
 
@@ -968,6 +965,7 @@ button:active {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: -1;
 
     img {
       width: 100%;
@@ -995,7 +993,7 @@ button:active {
         font-size: clamp(0.9rem, 1.5vw, 2rem);
         color: #f2b64f;
         font-weight: 300;
-        letter-spacing: clamp(0.2rem,0.5vw,1.5rem);
+        letter-spacing: clamp(0.2rem, 0.5vw, 1.5rem);
       }
       h3 {
         font-size: clamp(1.2rem, 1.5vw, 2.5rem);
@@ -1033,8 +1031,8 @@ button:active {
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      border-left: solid 1px #f2b64f;
-      border-right: solid 1px #f2b64f9f;
+      border-left: solid 1px #f2b64f70;
+      border-right: solid 1px #f2b64f70;
 
       p {
         font-size: clamp(0.7rem, 1.2vw, 2rem);
@@ -1116,7 +1114,7 @@ button:active {
       font-size: clamp(1rem, 1.9vw, 2rem);
       color: #f2b64f;
       font-family: "Playfair Display", serif;
-      letter-spacing: clamp(0.5rem,1vw,3rem);
+      letter-spacing: clamp(0.5rem, 1vw, 3rem);
     }
   }
 }
@@ -1156,5 +1154,81 @@ button:active {
     .Parte__inferior {
       height: 8%;
     }
+  }
+}
+
+.sassão__Cultura {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 255, 0.623);
+  position: relative;
+
+  .fundo__cultura {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .Cultura__parte1 {
+    width: 100%;
+    height: 75%;
+    background: rgba(255, 0, 0, 0.589);
+    display: flex;
+
+    .Terra__3D {
+      width: 50%;
+      height: 100%;
+      background: rgba(128, 255, 0, 0.24);
+    }
+    .Texto__cultura {
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 140, 0, 0.267);
+    }
+  }
+    .gradientes{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(260deg , black 10% ,transparent,transparent);
+    position: absolute;
+    z-index: -1;
+  }
+  .cards__carrosel {
+    width: 100%;
+    height: 25%;
+    background: rgba(0, 0, 139, 0.342);
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  .fundo__footer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+      .gradientes{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(210deg , black 5% ,transparent,transparent);
+    position: absolute;
+    z-index: -1;
   }
 }
