@@ -277,14 +277,14 @@ window.addEventListener('resize', function () {
 })
 
 
-fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_page=30&client_id=${chave}`)
+fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_page=10&client_id=${chave}`)
     .then(resposta => resposta.json())
     .then(fotos => {
 
         fotos.results.forEach((foto,index)=>{
             carrosel.innerHTML += `
-            <div class="card__carrosel" style="--delay:${index}s">
-                <img src=${foto.urls.full} alt="">
+            <div class="card__carrosel" style="--delay:${index * 4}s">
+                <img src=${foto.urls.regular} alt="">
             </div>
             `
         })
