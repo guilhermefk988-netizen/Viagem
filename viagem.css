@@ -1177,18 +1177,18 @@ button:active {
   .Cultura__parte1 {
     width: 100%;
     height: 75%;
-    background: rgba(255, 0, 0, 0.589);
     display: flex;
+
 
     .Terra__3D {
       width: 50%;
       height: 100%;
-      background: rgba(128, 255, 0, 0.24);
+
     }
     .Texto__cultura {
       width: 50%;
       height: 100%;
-      background: rgba(255, 140, 0, 0.267);
+      background: rgba(255, 140, 0, 0.603);
     }
   }
   .gradientes {
@@ -1207,8 +1207,8 @@ button:active {
     align-items: center;
     overflow: hidden;
 
-    .card__carrosel{
-      width: 20vw;
+    .card__carrosel {
+      width: clamp(10rem, 20vw, 40rem);
       height: 80%;
       border-radius: 1vw;
       overflow: hidden;
@@ -1218,7 +1218,7 @@ button:active {
       animation: animação 20s linear infinite;
       animation-delay: var(--delay);
 
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -1227,12 +1227,34 @@ button:active {
   }
 }
 
-@keyframes animação{
-  to{
+@keyframes animação {
+  to {
     right: -50%;
   }
-  from{
+  from {
     right: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sassão__Cultura {
+    .Cultura__parte1 {
+      flex-direction: column;
+      .Terra__3D {
+        width: 100%;
+        height: 50%;
+      }
+      .Texto__cultura {
+        width: 100%;
+        height: 50%;
+      }
+    }
+    .cards__carrosel {
+      .card__carrosel {
+        animation: animação 20s linear infinite;
+        animation-delay: var(--delay);
+      }
+    }
   }
 }
 
