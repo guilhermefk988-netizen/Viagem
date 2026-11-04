@@ -26,6 +26,9 @@ const Lugar3D = document.querySelector(".Terra__3D")
 
 const carrosel = document.querySelector(".cards__carrosel")
 
+const buttonLinksCelular = document.querySelector(".links__celular button")
+const links = document.querySelector(".links__aqui")
+
 fetch(`https://api.unsplash.com/photos?query=travel%20destinations&per_page=9&client_id=${chave}`)
     .then(res => res.json())
     .then(dados => {
@@ -288,4 +291,10 @@ fetch(`https://api.unsplash.com/search/photos?query=travel%20destinations&per_pa
             </div>
             `
         })
+    })
+
+    buttonLinksCelular.addEventListener('click', function(){
+       if(links.style.display === "none"){
+        (links.style.display = "flex")
+       }else{(links.style.display = "none")}
     })
