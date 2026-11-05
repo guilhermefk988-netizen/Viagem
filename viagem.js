@@ -50,13 +50,10 @@ fetch(`https://api.unsplash.com/photos?query=travel%20destinations&per_page=9&cl
                 <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png" alt="hearts" />
             </div>
             <div class="conteudo">
-                <h3>${card.user.location || "Nome não disponível"}</h3>
-                <p>França</p>
-                <p>⭐4.8(12.4k)</p>
-                <button>
-                    <img width="50" height="50" src="https://img.icons8.com/ios/50/ffffff/circled-left-2.png"
-                        alt="voltar" />
-                </button>
+                <h3>${card.user.name || "Nome não disponível"}</h3>
+                <p>${card.user.location || "Destino internacional"}</p>
+                
+                
             </div>
         </div>
               <div class="tras">
